@@ -16,6 +16,7 @@ export default (): { database: TypeOrmModuleOptions; http: HttpOptions } => ({
     synchronize: false,
     migrationsTableName: 'migration',
     migrations: ['dist/migrations/*.ts'],
+    migrationsRun: true,
   },
   http: {
     port: +process.env['HTTP_PORT'],
