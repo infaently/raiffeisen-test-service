@@ -13,18 +13,20 @@ services:
       - pgdata13:/var/lib/postgresql/data
 
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: node:16-alpine
     env_file:
       - '.env'
     depends_on:
       - postgres
     container_name: account_api
     volumes:
-      - '~/.bash_history:/.bash_history'
+      - ${PWD}:/app
+      - ~/.bash_history:/.bash_history
+      - $HOME/.npmrc:/root/.npmrc
+    command: npm run start:debug
     ports:
       - 3042:3042
+    working_dir: /app
 
 volumes:
   pgdata13:

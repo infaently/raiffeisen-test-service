@@ -6,7 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "setup": "cp .env.example .env || true && docker-compose pull && docker-compose build && docker-compose run app run migration:run",
+    "setup": "cp .env.example .env || true && docker-compose pull && docker-compose build && docker-compose up",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",

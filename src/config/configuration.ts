@@ -13,9 +13,9 @@ export default (): { database: TypeOrmModuleOptions; http: HttpOptions } => ({
     password: process.env['POSTGRES_PASSWORD']!,
     database: process.env['POSTGRES_DB']!,
     entities: ['dist/**/*.entity.{ts,js}'],
-    synchronize: true,
+    synchronize: false,
     migrationsTableName: 'migration',
-    migrations: ['src/migrations/*.ts'],
+    migrations: ['dist/migrations/*.ts'],
   },
   http: {
     port: +process.env['HTTP_PORT'],

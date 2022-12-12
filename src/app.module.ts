@@ -9,7 +9,6 @@ import configuration from './config/configuration';
   imports: [
     ConfigModule.forRoot({
       envFilePath: '.env',
-      // ignoreEnvFile: true,
       load: [configuration],
     }),
     TypeOrmModule.forRootAsync({
