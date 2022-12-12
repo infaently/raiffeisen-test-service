@@ -23,7 +23,7 @@ services:
       - ${PWD}:/app
       - ~/.bash_history:/.bash_history
       - $HOME/.npmrc:/root/.npmrc
-    command: npm run start:debug
+    command: npm run start:dev
     ports:
       - 3042:3042
     working_dir: /app
