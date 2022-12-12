@@ -29,11 +29,11 @@ export class TransactionController {
       throw new BadRequestException(`Account can't be equivalent`);
     }
 
-    const result = await this.transactionService.transferBalance(
+    const amount = await this.transactionService.transferBalance(
       accountIdFrom,
       accountIdTo,
     );
 
-    return result;
+    return { amount };
   }
 }

@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    restart: always
+    container_name: db_account_api
+    env_file:
+      - '.env'
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata13:/var/lib/postgresql/data
+
+  app:
+    image: node:16-alpine
+    env_file:
+      - '.env'
+    depends_on:
+      - postgres
+    container_name: account_api
+    volumes:
+      - ${PWD}:/app
+      - ~/.bash_history:/.bash_history
+      - $HOME/.npmrc:/root/.npmrc
+    command: npm run test:dev
+    ports:
+      - 3042:3042
+    working_dir: /app
+
+volumes:
+  pgdata13:

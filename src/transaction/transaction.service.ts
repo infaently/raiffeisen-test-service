@@ -18,6 +18,7 @@ export class TransactionService {
   ) {}
 
   async transferBalance(accountIdFrom: number, accountIdTo: number) {
+    // TODO needs transaction
     const accountFrom = await this.accountRepository.findOne({
       where: { accountId: accountIdFrom },
     });
